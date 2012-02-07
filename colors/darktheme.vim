@@ -87,7 +87,7 @@ hi           TagListComment                ctermfg=100               cterm=none 
 hi           TagListFileName               ctermfg=255               ctermbg=26      cterm=none      guifg=#eeeeee   guibg=#005fd7
 "
 "            Matches
-hi           MatchParen                    ctermfg=236               ctermbg=215     guifg=#303030   guibg=#ffaf5f
+hi           MatchParen                    ctermfg=236               ctermbg=215     guifg=#303030   guibg=#ffaf5f    term=none
 
 "            Tree
 hi           Directory                     ctermfg=15                guifg=#ffffff
