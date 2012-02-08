@@ -13,3 +13,6 @@
 [submodule "bundle/vim-taglist"]
 	path = bundle/vim-taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "python_plugins/pylint"]
+	path = python_plugins/pylint
+	url = https://github.com/vim-scripts/pylint.vim.git
