@@ -122,6 +122,7 @@ if has("autocmd")
         " {{{ functions
         function! PythonAuto() " {{{
             runtime python_plugins/pylint/compiler/pylint.vim
+            runtime python_plugins/python_fn.vim
             set omnifunc=pythoncomplete#Complete
         endfunc " }}}
         " }}}
