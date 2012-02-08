@@ -76,6 +76,72 @@ scriptencoding utf-8
     endfunction " }}}
 " }}}
 
+" {{{ autocommads
+if has("autocmd")
+    au BufRead,BufNewFile  ~/.config/uzbl/*  set filetype=uzbl
+    au BufRead,BufNewFile *.tpl set filetype=smarty
+    au BufNewFile,BufRead *.lpc set filetype=lpc
+
+    au BufRead,BufNewFile */.irssi/logs/*.log    set filetype=irssilog
+    au BufReadPost quickfix setlocal nobuflisted
+
+    " Source the vimrc file after saving it
+    autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd bufwritepost .vim/vimrc source $MYVIMRC
+
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+
+    augroup gentoo
+      au!
+
+      au BufRead,BufNewFile *.e{build,class} let is_bash=1|setfiletype sh
+      au BufRead,BufNewFile *.e{build,class} set ts=4 sw=4 noexpandtab
+
+      " In text files, limit the width of text to 78 characters, but be careful
+      " that we don't override the user's setting.
+      autocmd BufNewFile,BufRead *.txt
+            \ if &tw == 0 && ! exists("g:leave_my_textwidth_alone") |
+            \     setlocal textwidth=78 |
+            \ endif
+
+      " When editing a file, always jump to the last cursor position
+      autocmd BufReadPost *
+            \ if ! exists("g:leave_my_cursor_position_alone") |
+            \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \         exe "normal g'\"" |
+            \     endif |
+            \ endif
+
+      " When editing a crontab file, set backupcopy to yes rather than auto. See
+      " :help crontab and bug #53437.
+      autocmd FileType crontab set backupcopy=yes
+
+    augroup END
+
+    " {{{ FileType autocmd's
+        " {{{ functions
+        function! PythonAuto() " {{{
+            set omnifunc=pythoncomplete#Complete
+            compiler pylint
+        endfunc " }}}
+        " }}}
+
+        autocmd FileType python call PythonAuto()
+
+        autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+        autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        autocmd FileType c set omnifunc=ccomplete#Complete
+        autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
+
+
+        autocmd FileType man set background=light
+    " }}}
+endif
+" }}}
+
 " {{{ Terminal fixes
     if &term ==? "xterm"
       set t_Sb=^[4%dm
