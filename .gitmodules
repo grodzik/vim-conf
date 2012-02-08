@@ -16,3 +16,6 @@
 [submodule "python_plugins/pylint"]
 	path = python_plugins/pylint
 	url = https://github.com/vim-scripts/pylint.vim.git
+[submodule "/home/grodzik/.vim/bundle/gundo"]
+	path = /home/grodzik/.vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
