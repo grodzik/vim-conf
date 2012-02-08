@@ -220,6 +220,7 @@ scriptencoding utf-8
     nnoremap <Leader>tS  :call SpellLangToggle()<CR>
     nnoremap <Leader>co  :copen<CR>
     nnoremap <Leader>cc  :cclose<CR>
+    nnoremap <Leader>tag :TlistToggle<CR>
     " }}}
     " {{{ quit'n'save
     nnoremap <Leader>qw  :w<CR>
