@@ -174,6 +174,10 @@ endif
     endif
 " }}}
 
+" {{{ plugin settings
+    let g:gundo_right = 1
+" }}}
+
 " {{{ vimrc.local
     if filereadable("/etc/vim/vimrc.local")
       source /etc/vim/vimrc.local
