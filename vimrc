@@ -123,7 +123,9 @@ if has("autocmd")
         function! PythonAuto() " {{{
             runtime python_plugins/pylint/compiler/pylint.vim
             runtime python_plugins/python_fn.vim
+            runtime python_plugins/vim-flake8/ftplugin/python_flake8.vim
             set omnifunc=pythoncomplete#Complete
+            let g:flake8_ignore="E501"
         endfunc " }}}
         " }}}
 
@@ -276,6 +278,7 @@ endif
       echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
     endfunc " }}}
 " }}}
+
 " {{{ Mappings
     " {{{ tabs
     nnoremap <Leader>T   :tabnew<CR>
@@ -306,7 +309,7 @@ endif
     nnoremap <Leader>bd  :bd<CR>
     " }}}
     " {{{ fugitive
-    nnoremap <Leader>gc  :Gcommit -a<CR>
+    nnoremap <Leader>gc  :Gcommit<CR>
     nnoremap <Leader>gs  :Gstatus<CR>
     nnoremap <Leader>gd  :Gdiff<CR>
     " }}}

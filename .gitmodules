@@ -22,3 +22,6 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "python_plugins/vim-flake8"]
+	path = python_plugins/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
