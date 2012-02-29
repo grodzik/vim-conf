@@ -124,6 +124,7 @@ if has("autocmd")
             runtime python_plugins/pylint/compiler/pylint.vim
             runtime python_plugins/python_fn.vim
             runtime python_plugins/vim-flake8/ftplugin/python_flake8.vim
+            runtime python_plugins/vim-pyunit/ftplugin/python_pyunit.vim
             set omnifunc=pythoncomplete#Complete
             let g:flake8_ignore="E501"
         endfunc " }}}
